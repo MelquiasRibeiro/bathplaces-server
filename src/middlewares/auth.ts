@@ -7,7 +7,7 @@ export default async (req:Request, res:Response, next:NextFunction) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return res.status(401).json({ error: 'invalid token' });
+    return res.status(401).json({ error: 'sem token' });
   }
 
   const [, token] = authHeader.split(' ');

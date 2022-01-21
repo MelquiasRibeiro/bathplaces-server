@@ -8,11 +8,11 @@ import mongoose from "mongoose"
 dotenv.config()
 
 const port = process.env.PORT||"3333"
-const databaseUrl = process.env.MONGO_URL
+const databaseUrl = process.env.MONGO_URL || ""
 
 mongoose.connect(databaseUrl)
 .then(()=>console.log("Conected to MongoDB"))
-.catch(err=>console.log(err));
+.catch(err=>console.log(err,"err"));
 
 const app = express();
 app.use(cors());
@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(routes); 
 
-app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
+//app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 
 
 app.listen(port,()=>{

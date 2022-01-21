@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from "bcrypt";
 
-import User from "../database/User";
+import User from "../database/user";
 
 class UserController{
     async index(_:Request, res:Response){
